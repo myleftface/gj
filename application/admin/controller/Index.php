@@ -17,4 +17,12 @@ class Index extends Controller
         
         return $this ->fetch();
     }
+    public function performance(){
+        
+        return $this ->fetch();
+    }
+    public function feedback(){
+        
+        return $this ->fetch();
+    }
 }

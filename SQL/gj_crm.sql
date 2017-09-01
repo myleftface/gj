@@ -71,3 +71,13 @@ CREATE TABLE `gj_performance` (
   `create_time` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `update_time` int(11) UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `gj_department` (
+  `id` int(11) NOT NULL,
+  `d_name` varchar(32) NOT NULL DEFAULT '',
+  `create_time` int(11) NOT NULL DEFAULT '0',
+  `update_time` int(11) NOT NULL DEFAULT '0',
+  `status` tinyint(1) DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
