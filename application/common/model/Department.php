@@ -4,22 +4,29 @@ namespace app\Common\model;
 
 use think\Model;
 
-class Department extends Model
+class Department extends BaseModel
 {
     //
     public function getDepartment() {
         $data = [
             'status' => 0,
-            '$d_name' => $d_name,
+          
         ];
 
         $order = [
             'id' => 'desc',
         ];
 
-        return $this->where($data)
+        $res = $this->where($data)
             ->order($order)
+            ->field("id,d_name")
             ->select();
+        
+        //echo $this->getLastSql();
+        //  $res = $res->toArray();
+        // dump($res);
+        
+      return $res;
     }
-  
+
 }
