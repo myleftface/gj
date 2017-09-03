@@ -11,7 +11,7 @@ class User extends BaseModel
             exception('传递的数据不是数组');
         }
 
-        $data['status'] = 1;
+        $data['status'] = 0;
         return $this->data($data)->allowField(true)
             ->save();
     }
@@ -27,5 +27,24 @@ class User extends BaseModel
 
         $data = ['username' => $username];
         return $this->where($data)->find();
+    }
+
+    public function getAllUser() {
+        $data = [
+          
+            'status' => ['neq',-1],
+        ];
+
+        $order =[
+         
+            'id' => 'desc',
+        ];
+        $result = $this->where($data)
+            ->order($order)
+            ->paginate();
+        //echo $this->getLastSql();
+
+        return $result;
+
     }
 }

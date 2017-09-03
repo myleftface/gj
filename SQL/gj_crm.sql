@@ -30,6 +30,7 @@ CREATE TABLE `gj_customer` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(50) NOT NULL DEFAULT '',
   `entry_date` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `contract_id` int(11) UNSIGNED NOT NULL,
   `contract_date` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `cus_phone` varchar(20) NOT NULL DEFAULT '',
   `cell_address` varchar(255) NOT NULL DEFAULT '',
@@ -43,6 +44,7 @@ CREATE TABLE `gj_customer` (
   `submitter` varchar(50) NOT NULL DEFAULT '',
   `cus_level` varchar(50) NOT NULL DEFAULT '',
   `description` text NOT NULL,
+  `payment_status` tinyint(1) NOT NULL DEFAULT '0',
   `status` tinyint(1) NOT NULL DEFAULT '0',
   `create_time` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `update_time` int(11) UNSIGNED NOT NULL DEFAULT '0'
