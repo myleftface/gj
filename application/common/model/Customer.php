@@ -9,7 +9,7 @@ class Customer extends BaseModel
      * 通过状态获取客户数据
      * @param $status
      */
-    public function getBisByStatus($status=0) {
+    public function getCustomerByStatus($status=0) {
         $order = [
             'id' => 'desc',
         ];
@@ -21,5 +21,7 @@ class Customer extends BaseModel
             ->order($order)
             ->paginate();
         return $result;
+       // dump($result);
     }
+    
 }

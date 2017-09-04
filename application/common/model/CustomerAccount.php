@@ -3,7 +3,7 @@ namespace app\common\model;
 
 use think\Model;
 
-class Customer extends BaseModel
+class CustomerAccount extends BaseModel
 {
 
     public function updateById($data, $id) {

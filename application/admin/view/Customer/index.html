@@ -2,17 +2,17 @@
 
 <body>
 	<article class="page-container">
-		<form class="form form-horizontal" id="customer" method="POST" action="{:url('admin/customer/add')}">
+		<form class="form form-horizontal" id="form-article-add" method="POST" action="{:url('admin/customer/add')}">
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>客户姓名：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" value="" placeholder="" id="cus_name" name="cus_name">
+					<input type="text" class="input-text" value="" placeholder="" id="name" name="name">
 				</div>
 			</div>
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>进店日期：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" onfocus="selecttime(1)" id="commentdatemin" name="commentdatemin" class="input-text Wdate">
+					<input type="text" onfocus="selecttime(1)" id="entry_date" name="entry_date" value ="" class="input-text Wdate">
 				</div>
 			</div>
 			<div class="row cl">
@@ -26,7 +26,7 @@
 				<label class="form-label col-xs-4 col-sm-2"></span>小区地址
 						：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" value="" placeholder="" id="cell_address" name="celll_address">
+					<input type="text" class="input-text" value="" placeholder="" id="cell_address" name="cell_address">
 				</div>
 			</div>
 			<div class="row cl">
@@ -42,28 +42,47 @@
 				<div class="formControls col-xs-8 col-sm-9">
 					<input type="text" class="input-text" value="" placeholder="" id="" name="floor_space">
 				</div>
-			</div>
+            </div>
+            <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">交房日期：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" onfocus="selecttime(1)" id="handover_date" name="handover_date" value= "" class="input-text Wdate">
+                    </div>
+                </div>
+                <div class="row cl">
+                        <label class="form-label col-xs-4 col-sm-2">合同总值
+                                        ：</label>
+                        <div class="formControls col-xs-8 col-sm-9">
+                            <input type="text" class="input-text" value="" placeholder="" id="" name="total_value">
+                        </div>
+                    </div>
+                    <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-2">设计费
+                                            ：</label>
+                            <div class="formControls col-xs-8 col-sm-9">
+                                <input type="text" class="input-text" value="" placeholder="" id="" name="design_fee">
+                            </div>
+                        </div>
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>合同日期：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" onfocus="selecttime(2)" id="commentdatemax" name="commentdatemax" class="input-text Wdate">
+					<input type="text" onfocus="selecttime(1)" id="contract_date" name="contract_date" value= "" class="input-text Wdate">
 				</div>
 			</div>
 			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>业务员：</label>
+				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>提交人：</label>
 				<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select id="submitter" name="submitter" class="select">
-				    <option value="0">--选择业务员--</option>
-					<option value="1">张三</option>
-					<option value="1">李四</option>
-					<option value="11">莫晓燕</option>
-				</select>
+                    {volist name="submitter" id="vo"}
+                    <option value="{$vo.id}" {if condition="$vo.id eq $user.id"}selected="selected"{/if}>{$vo.username}</option>
+                    {/volist}
+                </select>
 				</span> </div>
 			</div>
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2">客户级别：</label>
 				<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select name="articletype" class="select">
+				<select name="cus_level" class="select">
 				    <option value="0">--根据客户意向选择级别--</option>
 					<option value="1">A级</option>
 					<option value="1">B级</option>
@@ -75,8 +94,8 @@
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2">客户情况：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<textarea name="desciption" cols="" rows="" class="textarea" placeholder="客户情况...最少输入10个字符" datatype="*10-100" dragonfly="true"
-					    nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
+					<textarea name="description" cols="" rows="" class="textarea" placeholder="客户情况...最少输入10个字符" datatype="*10-100" dragonfly="true"
+					    ></textarea>
 					<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
 				</div>
 			</div>
@@ -120,7 +139,7 @@
 			});
 
 			//表单验证
-			$("#customer").validate({
+			$("#form-article-add").validate({
 				rules: {
 					cus_name: {
 						required: true,
@@ -154,12 +173,12 @@
 				onkeyup: false,
 				focusCleanup: true,
 				success: "valid",
-				submitHandler: function (form) {
-					//$(form).ajaxSubmit();
-					var index = parent.layer.getFrameIndex(window.name);
-					//parent.$('.btn-refresh').click();
-					parent.layer.close(index);
-				}
+				// submitHandler: function (form) {
+				// 	//$(form).ajaxSubmit();
+				// 	var index = parent.layer.getFrameIndex(window.name);
+				// 	//parent.$('.btn-refresh').click();
+				// 	parent.layer.close(index);
+				// }
 			});
 		});
 

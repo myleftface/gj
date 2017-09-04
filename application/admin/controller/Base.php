@@ -12,13 +12,16 @@ class Base extends Controller {
              return $this->redirect('user/login');
          }
          //部门数据
-        //  $department = model('Department')->getDpartment();
-        //  $this->assgin('department',$department);
-        //  $this->assign('id',$id);
-        //  $this->assign('d_name',$d_name);
+         $department = model('Department')->getDepartment();
+          $this->assign('department',$department);
+        //业务员数据
+        $submitter = model('User')->getAllUserByDepartment();
+         $this->assign('submitter',$submitter);
 
          //获取当前用户
          $this->assign('user', $this->getLoginUser());
+         
+        
       
     }
         //获取部门名称    

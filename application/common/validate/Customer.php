@@ -4,9 +4,9 @@ use think\Validate;
 class Customer extends Validate {
     protected $rule = [
         'name' => 'require|max:25',
-        'entry_date' => 'require',
+        //'entry_date' => 'require',
         'cus_phone' => 'require',
-        'contract_date' => 'require',
+        //'contract_date' => 'require',
         'designer' => 'require',
         'submitter' => 'require',
        

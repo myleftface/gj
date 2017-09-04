@@ -19,7 +19,6 @@ class Department extends BaseModel
 
         $res = $this->where($data)
             ->order($order)
-            ->field("id,d_name")
             ->select();
         
         //echo $this->getLastSql();

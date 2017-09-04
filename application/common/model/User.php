@@ -47,4 +47,23 @@ class User extends BaseModel
         return $result;
 
     }
+    public function getAllUserByDepartment() {
+        $data = [
+          
+            'status' => ['neq',-1],
+            'department'=>['gt',0],
+        ];
+
+        $order =[
+         
+            'id' => 'desc',
+        ];
+        $result = $this->where($data)
+            ->order($order)
+            ->paginate();
+        //echo $this->getLastSql();
+
+        return $result;
+
+    }
 }
