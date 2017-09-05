@@ -10,12 +10,11 @@
                 </div>
             </div>
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">进店日期：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" onfocus="selecttime(1)" id="entry_date" name="entry_date" value="{$cusData.entry_date}" class="input-text Wdate"
-                        disabled="disabled">
+                    <label class="form-label col-xs-4 col-sm-2">进店日期：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{notempty name="$cusData.entry_date"}{$cusData.entry_date|date="Y-m-d",###}{/notempty}" disabled="disabled" name="entry_time">
+                    </div>
                 </div>
-            </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">联系方式
 					：</label>
@@ -60,62 +59,62 @@
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">客户情况：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <textarea name="description" cols="" rows="" class="textarea" placeholder="客户情况" dragonfly="true">{$cusData.description}</textarea>
+                    <textarea name="description" cols="" rows="" class="textarea" disabled="disabled" dragonfly="true">{$cusData.description}</textarea>
 
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">设计师：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" value="{$cusData.designer}" placeholder="" id="designer" name="designer">
+                    <input type="text" class="input-text" value="{$cusData.designer}" disabled="disabled" name="designer">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">渠道来源：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" value="{$cusData.source}" placeholder="" id="source" name="source">
+                    <input type="text" class="input-text" value="{$cusData.source}" disabled="disabled"name="source">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">合同编号
                                     ：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" value="{$cusData.contract_id}" placeholder="" id="" name="contract_id">
+                    <input type="text" class="input-text" value="{notempty name="$cusData.contract_id"}{$cusData.contract_id}{/notempty}" disabled="disabled" name="contract_id">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">缴费进度
                                         ：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" value="{$cusData.payment_status}" placeholder="" id="" name="paymetn_status">
+                    <input type="text" class="input-text" value="{$cusData.payment_status}"disabled="disabled" name="paymetn_status">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">合同总值
                                     ：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" value="{$cusData.total_value}" placeholder="" id="" name="total_value">
+                    <input type="text" class="input-text" value="{$cusData.total_value}" disabled="disabled" name="total_value">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">设计费
                                         ：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" value="{$cusData.design_fee}" placeholder="" id="" name="design_fee">
+                    <input type="text" class="input-text" value="{$cusData.design_fee}" disabled="disabled" name="design_fee">
                 </div>
             </div>
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">合同日期：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" onfocus="selecttime(1)" id="contract_date" name="contract_date" value="{$cusData.contract_date}" class="input-text Wdate">
+                    <label class="form-label col-xs-4 col-sm-2">合同日期：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{notempty name="$cusData.contract_date"}{$cusData.contract_date|date="Y-m-d",###}{/notempty}" disabled="disabled" name="contract_time">
+                    </div>
                 </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">交房日期：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" onfocus="selecttime(1)" id="handover_date" name="handover_date" value="" class="input-text Wdate">
-                </div>
-            </div>
+                <div class="row cl">
+                        <label class="form-label col-xs-4 col-sm-2">交房日期：</label>
+                        <div class="formControls col-xs-8 col-sm-9">
+                            <input type="text" class="input-text" value="{notempty name="$cusData.handover_date"}{$cusData.handover_date|date="Y-m-d",###}{/notempty}" disabled="disabled" name="handover_time">
+                        </div>
+                    </div>
 
             <!-- <div class="row cl">
 				<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">

@@ -23,24 +23,24 @@
                 <thead>
                     <tr class="text-c">
                         <th width="30">编号</th>
-                        <th width="60">客户姓名</th>
-                        <th width="80">进店日期</th>
+                        <th width="80">客户姓名</th>
+                        <th width="100">进店日期</th>
                         <th width="80">联系方式</th>
                         <th width="200">小区地址</th>
-                        <th width="40">楼牌号</th>
-                        <th width="60">建筑面积</th>
-                        <th width="60">客户级别</th>
+                        <th width="60">楼牌号</th>
+                        <th width="80">建筑面积</th>
+                        <th width="80">客户级别</th>
                         <th width="200">客户情况</th>
                         <th width="60">设计师</th>
                         <th width="60">提交人</th>
-                        <th width="60">渠道来源</th>
-                        <th width="80">交房日期</th>
+                        <th width="80">渠道来源</th>
+                        <th width="100">交房日期</th>
                         <th width="60">合同ID</th>
-                        <th width="80">合同日期</th>
-                        <th width="80">开工日期</th>
-                        <th width="60">合同总值</th>
+                        <th width="100">合同日期</th>
+                        <th width="100">开工日期</th>
+                        <th width="80">合同总值</th>
                         <th width="60">设计费</th>
-                        <th width="50">缴费状态</th>
+                        <th width="80">缴费状态</th>
                         <th width="50">状态</th>
                         <th width="100">操作</th>
                     </tr>
@@ -50,7 +50,7 @@
                     <tr class="text-c">
                         <td>{$vo.id}</td>
                         <td>{$vo.name}</td>
-                        <td>{$vo.entry_date|date="Y-m-d",###}</td>
+                        <td>{notempty name="$vo.entry_date"}{$vo.entry_date|date="Y-m-d",###}{/notempty}</td>
                         <td>{$vo.cus_phone}</td>
                         <td>{$vo.cell_address}</td>
                         <td>{$vo.brand}</td>
@@ -60,10 +60,10 @@
                         <td>{$vo.designer}</td>
                         <td>{$vo.submitter}</td>
                         <td>{$vo.source}</td>
-                        <td>{$vo.handover_date|date="Y-m-d",###}</td>
-                        <td>{$vo.contract_id}</td>
-                        <td>{$vo.contract_date|date="Y-m-d",###}</td>
-                        <td>{$vo.start_date|date="Y-m-d",###}</td>
+                        <td>{notempty name="$vo.handover_date"}{$vo.handover_date|date="Y-m-d",###}{/notempty}</td>
+                        <td>{notempty name="$vo.contract_id"}{$vo.contract_id}{/notempty}</td>
+                        <td>{notempty name="$vo.contract_date"}{$vo.contract_date|date="Y-m-d",###}{/notempty}</td>
+                        <td>{notempty name="$vo.start_date"}{$vo.start_date|date="Y-m-d",###}{/notempty}</td>
                         <td>{$vo.total_value}</td>
                         <td>{$vo.design_fee}</td>
                         <td>{$vo.payment_status}</td>
