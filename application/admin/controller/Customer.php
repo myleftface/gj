@@ -14,7 +14,7 @@ class Customer extends  Base
             $this->error('请求错误');
         }
         // 获取表单的值
-        $data = input('post.');
+        $data = input('post.','','htmlentities');
         //检验数据
         $validate = validate('Customer');
         if(!$validate->scene('add')->check($data)) {
@@ -33,20 +33,20 @@ class Customer extends  Base
             'name' => $data['name'],
             'entry_date' => strtotime($data['entry_date']),
             'cus_phone' => $data['cus_phone'],
-            'cell_address' => $data['cell_address'],
-            'brand' => $data['brand'],
-            'floor_space' => $data['floor_space'],
-            'handover_date' => strtotime($data['handover_date']), 
-            'total_value' => $data['total_value'],
-            'design_fee' => $data['design_fee'],
-            'contract_date' => strtotime($data['contract_date']), 
-            'submitter' => $data['submitter'],
+            'cell_address' => empty($data['cell_address']) ? '' : $data['cell_address'],
+            'brand' => empty($data['brand']) ? '' : $data['brand'],
+            'floor_space' => empty($data['floor_space']) ? '' : $data['floor_space'],
+            'contract_id' => empty($data['contract_id']) ? '' : $data['contract_id'],
+            'contract_date' => empty($data['contract_date']) ? '' : strtotime($data['contract_date']), 
+            'handover_date' => empty($data['handover_date']) ? '' : strtotime($data['handover_date']), 
+            'total_value' => empty($data['total_value']) ? '' : $data['total_value'],
+            'payment_status' => empty($data['payment_status']) ? '' : $data['payment_status'],
+            'design_fee' => empty($data['design_fee']) ? '' : $data['design_fee'],
             'cus_level' => $data['cus_level'],
             'description' => empty($data['description']) ? '' : $data['description'],
-            //'description' => $data['description'],
             'designer' => $data['designer'],
-            'source' =>  $data['source'],
-            
+            'submitter' => $data['submitter'],
+            'source' => empty($data['source']) ? '' : $data['source'],            
         ];
         $cusId = model('Customer')->add($cusData);
      
@@ -58,6 +58,6 @@ class Customer extends  Base
        
 
     }
-
+   
 }
 	

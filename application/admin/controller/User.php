@@ -30,7 +30,7 @@ class User extends Base
     public function register()
     {
         if(request()->isPost()){
-            $data = input('post.');
+            $data = input('post.','','htmlentities');
 
             if(!captcha_check($data['verifycode'])) {
                 // 校验失败
@@ -69,7 +69,7 @@ class User extends Base
         if(!request()->isPost()) {
            $this->error('提交不合法');
         }
-        $data = input('post.');
+        $data = input('post.','','htmlentities');
         //严格检验 tp5 validate
 
         try {
@@ -113,7 +113,7 @@ class User extends Base
             $this->error('请求失败');
         }
 
-        $data = input('post.');
+        $data = input('post.','','htmlentities');
         //dump($data);exit;
         //halt($data);
         //echo 12;exit;

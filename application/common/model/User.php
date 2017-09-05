@@ -29,6 +29,17 @@ class User extends BaseModel
         return $this->where($data)->find();
     }
 
+
+    public function getUserById($id) {
+        if(!$id) {
+            exception('ID不合法');
+        }
+
+        $data = ['id' => $id];
+        return $this->where($data)->find();
+    }
+
+
     public function getAllUser() {
         $data = [
           
@@ -51,7 +62,7 @@ class User extends BaseModel
         $data = [
           
             'status' => ['neq',-1],
-            'department'=>['gt',0],
+            'department'=>['eq',2],
         ];
 
         $order =[

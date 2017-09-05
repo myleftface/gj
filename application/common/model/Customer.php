@@ -24,4 +24,17 @@ class Customer extends BaseModel
        // dump($result);
     }
     
+    public function getNormalCustomers($data =[]) {
+        $data['status'] =  ['gt', -1];
+		$order = ['id'=>'desc'];
+
+		$result = $this->where($data)
+			->order($order)
+			->paginate();
+
+		//echo $this->getLastSql();
+		return  $result;
+    }
+    
+    
 }

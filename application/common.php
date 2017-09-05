@@ -20,7 +20,18 @@ function status($status) {
     }
     return $str;
 }
-
+function  cus_status($status) {
+    if($status == 1) {
+        $str = "<span class='label label-warning radius'>未审核</span>";
+    }elseif($status == 0) {
+        $str = "<span class='label label-primary radius'>未成交</span>";
+    }elseif($status == 2) {
+        $str = "<span class='label label-success radius'>审核通过</span>";
+    }else{
+        $str = "<span class='label label-danger radius'>已删除</span>";
+    }
+    return $str;
+}
 /**
  * 通用的分页样式
  * @param $obj
@@ -31,6 +42,6 @@ function status($status) {
     }
     // 优化的方案
     $params = request()->param();
-    return '<div class="cl pd-5 bg-1 bk-gray mt-20 tp5-o2o">'.$obj->appends($params)->render().'</div>';
+    return '<div class="cl pd-5 bg-1 bk-gray mt-20 tp5-gj">'.$obj->appends($params)->render().'</div>';
 }
 
