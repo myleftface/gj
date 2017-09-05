@@ -6,7 +6,8 @@ class Customer extends Validate {
         'name' => 'require|max:25',
         'entry_date' => 'require',
         'cus_phone' => 'require',
-        //'contract_date' => 'require',
+        'contract_date' => 'require',
+        'contract_id' => 'require',
         'designer' => 'require',
         'submitter' => 'require',
         ['id', 'number'],
@@ -17,5 +18,6 @@ class Customer extends Validate {
     protected  $scene = [
         'add' => ['name', 'entry_date', 'cus_phone', 'contract_date', 'designer', 'submitter'],
         'status' => ['id','status'],
+        'update' =>['contract_id','contract_date']
     ];
 }

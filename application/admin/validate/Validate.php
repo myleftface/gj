@@ -13,7 +13,7 @@ class User extends Validate {
     /**场景设置**/
     protected  $scene = [
         'add' => ['name','id'],// 添加
-        'edit'=>['contact_id'],
+        'update'=>['contact_id'],
         'status' => ['id', 'status'],
     ];
 }

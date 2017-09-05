@@ -20,7 +20,8 @@ class Base extends Controller {
 
          //获取当前用户
          $this->assign('user', $this->getLoginUser());
-         
+        //获取客户
+        // $customers = model("Customer");
         
       
     }
@@ -43,6 +44,8 @@ class Base extends Controller {
         }
         return $this->account;
     }
+
+
 
     }
 

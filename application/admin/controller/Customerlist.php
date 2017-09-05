@@ -4,9 +4,9 @@ use think\Controller;
 class Customerlist extends  Base
 {
     private  $obj;
-    public function _initialize() {
-        $this->obj = model("Customer");
-    }
+     public function _initialize() {
+         $this->obj = model("Customer");
+     }
     /**
      * 正常的客户列表
      * @return mixed
@@ -39,7 +39,7 @@ class Customerlist extends  Base
         // foreach($citys as $city) {
         // 	$cityArrs[$city->id] = $city->name;
         // }
-        
+       // $this->obj = model("Customer");
 
         $customer = $this->obj->getNormalCustomers($sdata);
         return $this->fetch('', [
@@ -56,7 +56,7 @@ class Customerlist extends  Base
 
        //$customer = $this->obj->getCustomerByStatus(1);
         //获取当前用户
-       $this->assign('user', $this->getLoginUser());
+      // $this->assign('user', $this->getLoginUser());
         
         // return $this->fetch('', [
         //     'customer' => $customer,
@@ -108,6 +108,7 @@ class Customerlist extends  Base
             // 'source' => empty($data['source']) ? '' : $data['source'],
             ]);
     }
+
 
     // 修改状态
     public function status() {
