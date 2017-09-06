@@ -7,6 +7,7 @@ class Cusunreport extends  Base
     public function _initialize(){
 
         $this->obj = model('Customer');
+        $this->assign('user', $this->getLoginUser());
     }
     public function index() {
         $data = input('get.');

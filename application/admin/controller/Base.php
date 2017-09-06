@@ -89,9 +89,9 @@ class Base extends Controller {
         $res = model('Customer')->save(['status'=>$data['status']], ['id'=>$data['id']]);
         if($res) {
            
-            $this->success('状态更新成功');
+            $this->success('操作成功');
         }else {
-            $this->error('状态更新失败');
+            $this->error('操作失败');
         }
 
     }

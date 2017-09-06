@@ -6,6 +6,7 @@ class Cuschecked extends  Base
     private  $obj;
      public function _initialize() {
          $this->obj = model("Customer");
+         $this->assign('user', $this->getLoginUser());
      }
     /**
      * 未删除的客户列表
@@ -29,6 +30,17 @@ class Cuschecked extends  Base
         }
          //客户状态-1 已删除 0未成交 1未审核 2已审核
          $sdata['status'] = ['eq',2];
+           //返回当前用户提交的客户数据，如果是总监则返回全部
+       $user = $this->getLoginUser();
+       $uid = $user->id;
+        // dump($uid);
+        $department = model('User')->getUserDepartmentById($uid);
+        //dump($department->department);exit;
+        if($department->department != 1){
+           // echo $department->department;exit;
+            $sdata['submitter'] = $user->username;
+            //dump($sdata);exit;
+        }
         
         $customer = $this->obj->getNormalCustomers($sdata);
         return $this->fetch('', [

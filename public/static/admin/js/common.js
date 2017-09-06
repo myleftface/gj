@@ -19,6 +19,18 @@ function gj_del(url){
         window.location.href=url;
     });
 }
+/*-审核*/
+function gj_check(url){
+    
+        layer.confirm('确认要通过吗？',function(index){
+            window.location.href=url;
+        });
+    }
+    
+
+
+
+
 $('.listorder input').blur(function() {
     // 编写我们的抛送的逻辑
     //获取主键id
