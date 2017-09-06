@@ -1,0 +1,56 @@
+<!--包含头部文件-->
+{include file="pub/header" /}
+
+<body>
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 客户列表 </nav>
+    <div class="page-container">
+        <div class="cl pd-5 bg-1 bk-gray mt-20">
+            <div class="text-c">
+                <form action="{:url('admin/feedback/index')}" method="get">
+                     进店日期：
+                    <input type="text" name="start_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value="{$start_time}"
+                        style="width:120px;"> -
+                    <input type="text" name="end_time" class="input-text" id="countTimesend" onfocus="selecttime(1)" value="{$end_time}" style="width:120px;">
+                    <input type="text" name="name" id="" value="{$name}" placeholder=" 客户名称" style="width:250px" class="input-text">
+                    <button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜索
+                  </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-20">
+            <table class="table table-border table-bordered table-bg table-hover table-sort">
+                <thead>
+                    <tr class="text-c">
+                        <th width="30">编号</th>
+                        <th width="80">客户姓名</th>
+                        <th width="100">回访日期</th>
+                        <th width="200">回访情况</th>
+                        <th width="100">下次回访时间</th>
+                        <th width="80">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {volist name="fbData" id="vo"}
+                    <tr class="text-c">
+                        <td>{$vo.id}</td>
+                        <td>{$vo.cus_id}</td>
+                        <td>{notempty name="$vo.fb_date"}{$vo.fb_date|date="Y-m-d",###}{/notempty}</td>
+                        <td>{$vo.feedback}</td>
+                        <td>{notempty name="$vo.next_date"}{$vo.next_date|date="Y-m-d",###}{/notempty}</td>
+                        <td class="td-status">{$vo.status|status}</td>
+                        <td class="td-manage"><a style="text-decoration:none"
+                            class="ml-5" onClick="gj_del('{:url('cusfeedback/status', ['id'=>$vo.id, 'status'=>-1])}')"
+                            href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                        
+                    </tr>
+                    {/volist}
+
+                </tbody>
+            </table>
+            {:pagination($fbData)}
+        </div>
+       
+     
+        <!--包含头部文件-->
+        {include file="pub/footer" /}
