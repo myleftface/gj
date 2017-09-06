@@ -25,7 +25,7 @@ class Customer extends BaseModel
     }
     
     public function getNormalCustomers($data =[]) {
-        $data['status'] =  ['gt', -1];
+       // $data['status'] =  ['gt', -1];
 		$order = ['id'=>'desc'];
 
 		$result = $this->where($data)

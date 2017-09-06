@@ -43,34 +43,6 @@
 					<input type="text" class="input-text" value="" placeholder="" id="" name="floor_space">
 				</div>
 			</div>
-			<!-- 
-            <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-2">交房日期：</label>
-                    <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" onfocus="selecttime(1)" id="handover_date" name="handover_date" value= "" class="input-text Wdate">
-                    </div>
-                </div>
-                <div class="row cl">
-                        <label class="form-label col-xs-4 col-sm-2">合同总值
-                                        ：</label>
-                        <div class="formControls col-xs-8 col-sm-9">
-                            <input type="text" class="input-text" value="" placeholder="" id="" name="total_value">
-                        </div>
-                    </div>
-                    <div class="row cl">
-                            <label class="form-label col-xs-4 col-sm-2">设计费
-                                            ：</label>
-                            <div class="formControls col-xs-8 col-sm-9">
-                                <input type="text" class="input-text" value="" placeholder="" id="" name="design_fee">
-                            </div>
-                        </div>
-			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>合同日期：</label>
-				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" onfocus="selecttime(1)" id="contract_date" name="contract_date" value= "" class="input-text Wdate">
-				</div>
-			</div> -->
-
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>客户级别：</label>
 				<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
@@ -178,12 +150,10 @@
 				onkeyup: false,
 				focusCleanup: true,
 				success: "valid",
-				// submitHandler: function (form) {
-				// 	//$(form).ajaxSubmit();
-				// 	var index = parent.layer.getFrameIndex(window.name);
-				// 	//parent.$('.btn-refresh').click();
-				// 	parent.layer.close(index);
-				// }
+				submitHandler: function (form) {
+				form.Submit();
+				
+				}
 			});
 		});
 

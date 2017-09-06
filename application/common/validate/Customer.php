@@ -10,14 +10,20 @@ class Customer extends Validate {
         'contract_id' => 'require',
         'designer' => 'require',
         'submitter' => 'require',
-        ['id', 'number'],
-        ['status', 'number|in:-1,0,1,2','状态必须是数字|状态范围不合法'],//-1 删除 0 未成交 1 未审核 2 审核通过
+        'id', 'number',
+        'handover_date'=> 'require',
+        'start_date'=> 'require',
+        'total_value'=> 'require',
+        'payment_status'=> 'require',
+        'design_fee'=> 'require',
+        'status', 'number|in:-1,0,1,2','状态必须是数字|状态范围不合法',//-1 删除 0 未成交 1 未审核 2 审核通过
     ];
 
     // 场景设置
     protected  $scene = [
-        'add' => ['name', 'entry_date', 'cus_phone', 'contract_date', 'designer', 'submitter'],
+        'add' => ['name', 'entry_date', 'cus_phone','designer', 'submitter'],
         'status' => ['id','status'],
-        'update' =>['contract_id','contract_date']
+        'update' =>['contract_id','contract_date','handover_date','start_date','total_value','payment_status','design_fee','status']
     ];
 }
+
