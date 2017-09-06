@@ -15,8 +15,8 @@ class Base extends Controller {
          $department = model('Department')->getDepartment();
           $this->assign('department',$department);
         //设计师数据
-        $designer = model('User')->getAllUserByDepartment();
-         $this->assign('designer',$designer);
+         $submitter = model('User')->getAllUserByDepartment();
+         $this->assign('submitter',$submitter);
 
          //获取当前用户
          $this->assign('user', $this->getLoginUser());

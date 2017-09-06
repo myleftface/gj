@@ -32,9 +32,11 @@ class Customer extends BaseModel
 			->order($order)
 			->paginate();
 
-		//echo $this->getLastSql();
+	    //	echo $this->getLastSql();
 		return  $result;
     }
+
+    
     
     
 }

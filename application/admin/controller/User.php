@@ -6,11 +6,16 @@ class User extends Base
 {   
     private  $obj;
     public function _initialize() {
-        $this->obj = model("User");
+        
+         $this->obj = model("User");
     }
 
     public function index()
     {
+         $isLogin = $this->isLogin();
+        if(!$isLogin) {
+            return $this->redirect('user/login');
+        }
         $users = $this->obj->getAllUser();
         return $this->fetch('',[
             'users'=>$users,
@@ -31,24 +36,29 @@ class User extends Base
     {
         if(request()->isPost()){
             $data = input('post.','','htmlentities');
+            //dump($data);exit;
 
             if(!captcha_check($data['verifycode'])) {
                 // 校验失败
                 $this->error('验证码不正确');
             }
             //严格校验 tp5 validate
-
+            $validate= validate('user');
+            if(!$validate->scene('register')->check($data)) {
+                $this->error($validate->getError());
+            }
             if($data['password'] != $data['repassword']) {
                 $this->error('两次输入的密码不一样');
             }
             // 自动生成 密码的加盐字符串
             $data['code'] = mt_rand(100, 10000);
             $data['password'] = md5($data['password'].$data['code']);
-            //$data = 12;// test
+           
             try {
                 $res = model('User')->add($data);
             }catch (\Exception $e) {
-                $this->error($e->getMessage());
+               // $this->error($e->getMessage());
+               $this->error('注册失败，用户名或邮箱已被占用');
             }
             if($res) {
                 $this->success('注册成功，请通知管理员审核',url('user/login'));
@@ -169,7 +179,7 @@ class User extends Base
       // 修改状态
       public function status() {
         $data = input('get.');
-        // 检验小伙伴自行完成
+        // 检验
         $validate = validate('User');
         if(!$validate->scene('status')->check($data)) {
             $this->error($validate->getError());

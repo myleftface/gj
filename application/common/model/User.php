@@ -62,7 +62,7 @@ class User extends BaseModel
         $data = [
           
             'status' => ['neq',-1],
-            'department'=>['eq',2],
+            'department'=>['gt',1],
         ];
 
         $order =[
@@ -76,5 +76,17 @@ class User extends BaseModel
 
         return $result;
 
+    }
+
+    public function getUserDepartmentById($id=0) {
+        $data = [
+            'status' => 1,
+            'id' => $id,
+        ];
+        $res = $this->where($data)->find();
+        //echo $this->getLastSql();
+        //  $res = $res->toArray();
+        // dump($res);
+      return $res;
     }
 }

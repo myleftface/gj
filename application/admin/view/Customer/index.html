@@ -62,20 +62,20 @@
 				</div>
 			</div>
 			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>设计师：</label>
+				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>提交人：</label>
 				<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-					<select id="designerr" name="designer" class="select">
+					<select id="submitter" name="submitter" class="select">
 						<option value="0">--请选择--</option>
-						{volist name="designer" id="vo"}
-						<option value="{$vo.username}">{$vo.username}</option>
+						{volist name="submitter" id="vo"}
+						<option value="{$vo.username}"{if condition="$vo.id == $user.id"} selected="selected"{/if}>{$vo.username}</option>
 						{/volist}
 					</select>
 					</span> </div>
 			</div>
 			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>提交人：</label>
+				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>设计师：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" value="" placeholder="" name="submitter">
+					<input type="text" class="input-text" value="" placeholder="" name="designer">
 				</div>
 			</div>
 
