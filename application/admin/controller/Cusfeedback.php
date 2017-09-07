@@ -129,12 +129,13 @@ class Cusfeedback extends  Base
             return $this->error('没有回访数据');
         }
         //获取提交人的数据
-        // $user = model('User')->getAllUser();
+         $user = model('Customer')->getCustomerById($cus_id);
         // 获取回访数据
-        $fbData = model('Feedback')->get($cus_id);
+        $fbData = model('Feedback')->getFeedback($cus_id);
+       // dump($fbData);exit;
         return $this->fetch('',[
-            //'user' => $user,
-            'cusData' => $fbData,
+            'user' => $user,
+            'fbData' => $fbData,
             ]);
     }
 

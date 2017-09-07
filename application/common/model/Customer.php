@@ -36,6 +36,14 @@ class Customer extends BaseModel
 		return  $result;
     }
 
+    public function getCustomerById($id = 0) {
+        $data = [
+            'id' => $id,
+        ];
+         $result = $this->where($data)->find();
+        // echo $this->getLastSql();
+         return  $result;
+     }
     
     
     

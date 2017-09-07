@@ -4,13 +4,15 @@
     <article class="page-container">
         <form class="form form-horizontal" id="form-article-add" method="POST" action="{:url('admin/cusfeedback/fbsave')}">
             <div class="row cl">
-                <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>客户姓名
+
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>客户姓名
                                             ：</label>
-                    <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" class="input-text" value="{$customer.username}" placeholder="" id="" name="username">
-                    </div>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" value="{$customer.name}" placeholder="" id="" name="username">
                 </div>
+            </div>
+            <div class="row cl">
+
                 <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>回访日期：</label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <input type="text" onfocus="selecttime(1)" id="fb_date" name="fb_date" value="" class="input-text Wdate">

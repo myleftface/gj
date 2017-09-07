@@ -2,20 +2,10 @@
 {include file="pub/header" /}
 
 <body>
-    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 客户列表 </nav>
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 客户回访列表 </nav>
     <div class="page-container">
         <div class="cl pd-5 bg-1 bk-gray mt-20">
-            <div class="text-c">
-                <form action="{:url('admin/feedback/index')}" method="get">
-                     进店日期：
-                    <input type="text" name="start_time" class="input-text" id="countTimestart" onfocus="selecttime(1)" value="{$start_time}"
-                        style="width:120px;"> -
-                    <input type="text" name="end_time" class="input-text" id="countTimesend" onfocus="selecttime(1)" value="{$end_time}" style="width:120px;">
-                    <input type="text" name="name" id="" value="{$name}" placeholder=" 客户名称" style="width:250px" class="input-text">
-                    <button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜索
-                  </button>
-                </form>
-            </div>
+            
         </div>
 
         <div class="mt-20">
@@ -25,8 +15,9 @@
                         <th width="30">编号</th>
                         <th width="80">客户姓名</th>
                         <th width="100">回访日期</th>
-                        <th width="200">回访情况</th>
+                        <th width="1000">回访情况</th>
                         <th width="100">下次回访时间</th>
+                        <th width="80">状态</th>
                         <th width="80">操作</th>
                     </tr>
                 </thead>
@@ -34,7 +25,7 @@
                     {volist name="fbData" id="vo"}
                     <tr class="text-c">
                         <td>{$vo.id}</td>
-                        <td>{$vo.cus_id}</td>
+                        <td>{$user.name}</td>
                         <td>{notempty name="$vo.fb_date"}{$vo.fb_date|date="Y-m-d",###}{/notempty}</td>
                         <td>{$vo.feedback}</td>
                         <td>{notempty name="$vo.next_date"}{$vo.next_date|date="Y-m-d",###}{/notempty}</td>
