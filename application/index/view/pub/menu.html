@@ -1,0 +1,55 @@
+<aside class="Hui-aside">
+    <div class="menu_dropdown bk_2">
+        <dl id="menu-main">
+            <dt><i class="Hui-iconfont">&#xe620;</i> 常用菜单<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    
+                    <li><a data-href="/admin/customer/index" data-title="新客户提交" href="javascript:void(0)" id="parentIframe">新客户提交</a></li>
+                    <li><a data-href="/admin/cusunreport/index" data-title="未成交客户" href="javascript:void(0)">未成交客户</a></li>
+                    <li><a data-href="/admin/cusuncheck/index" data-title="未审核客户" href="javascript:void(0)">未审核客户</a></li>
+                    <li><a data-href="/admin/cuschecked/index" data-title="已审核客户" href="javascript:void(0)">已审核客户</a></li>
+                    <li><a data-href="/admin/cusdeleted/index" data-title="已删除客户" href="javascript:void(0)">已删除客户</a></li>
+                    <li><a data-href="/admin/cusfeedback/index" data-title="客户回访" href="javascript:void(0)">客户回访</a></li>
+                </ul>
+            </dd>
+        </dl>
+
+        <dl id="menu-tongji">
+            <dt><i class="Hui-iconfont">&#xe61a;</i> 系统统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a data-href="/index" data-title="设计师状态榜" href="javascript:void(0)">设计师状态榜</a></li>
+                    <li><a data-href="/index" data-title="市场部状态榜" href="javascript:void(0)">市场部状态榜</a></li>
+                    <li><a data-href="/index" data-title="设计团队状态榜" href="javascript:void(0)">设计团队状态榜</a></li>
+                    <li><a data-href="/index" data-title="市场团队状态榜" href="javascript:void(0)">市场团队状态榜</a></li>
+                    <li><a data-href="/index" data-title="设计师回访情况" href="javascript:void(0)">设计师回访情况</a></li>
+                    <li><a data-href="/index" data-title="设计师接单情况" href="javascript:void(0)">设计师接单情况</a></li>
+
+                </ul>
+            </dd>
+        </dl>
+        {if condition="$user.department lt 2"}
+        <dl id="menu-admin">
+            <dt><i class="Hui-iconfont">&#xe62d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a data-href="/index" data-title="用户管理" href="javascript:void(0)">角色管理</a></li>
+                  
+                    <li><a data-href="/admin/user/" data-title="用户列表" href="javascript:void(0)">用户列表</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <dl id="menu-system">
+            <dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a data-href="/index" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
+                  
+                </ul>
+            </dd>
+        </dl>
+        {/if}
+    </div>
+</aside>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
