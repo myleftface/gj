@@ -8,7 +8,7 @@ class Login extends  Controller
         if(request()->isPost()) {
             // 登录的逻辑
             //获取相关的数据
-            $data = input('post.');
+            $data = input('post.','','htmlentities');
             // 通过用户名 获取 用户相关信息
             // 严格的判定
 
@@ -20,6 +20,11 @@ class Login extends  Controller
 
             if($ret->password != md5($data['password'].$ret->code)) {
                 $this->error('密码不正确');
+            }
+            
+            if(!captcha_check($data['verifycode'])) {
+                // 校验失败
+                $this->error('验证码不正确');
             }
 
             model('AdminAccount')->updateById(['last_login_time'=>time()], $ret->id);

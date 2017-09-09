@@ -97,6 +97,10 @@ class User extends Base
             $this->error('密码不正确');
         }
 
+        if(!captcha_check($data['verifycode'])) {
+            // 校验失败
+            $this->error('验证码不正确');
+        }
         // 登录成功
         model('User')->updateById(['last_login_time'=>time()], $user->id);
 
