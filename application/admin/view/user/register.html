@@ -35,7 +35,7 @@
         <div id="loginform" class="loginBox">
             <div class="logo"></div>
 
-            <form class="form form-horizontal" action="{:url('user/register')}" method="post">
+            <form class="form form-horizontal" id="register" action="{:url('user/register')}" method="post">
 
                 <div class="row cl">
                     <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
@@ -46,7 +46,7 @@
                 <div class="row cl">
                     <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe63b;</i></label>
                     <div class="formControls col-xs-8">
-                        <input id="" name="email" type="text" placeholder="请填写邮箱地址" class="input-text radius size-L">
+                        <input id="" name="email" type="email" placeholder="请填写邮箱地址" class="input-text radius size-L">
                     </div>
                 </div>
                 <div class="row cl">
@@ -55,7 +55,7 @@
                         <span class="select-box size-L">
                            
                             <select class="select" name="department">
-                              <option value="0" selected>--请选择部门--</option>
+                              <option value="" selected>--请选择部门--</option>
                               {volist name='department' id='vo'}
                               <option value="{$vo.id}">{$vo.d_name}</option>
                             
@@ -68,13 +68,13 @@
                 <div class="row cl">
                     <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
                     <div class="formControls col-xs-8">
-                        <input id="" name="password" type="password" placeholder="请输入密码" class="input-text radius size-L">
+                        <input id="pwd" name="password" type="password" placeholder="请输入密码" class="input-text radius size-L">
                     </div>
                 </div>
                 <div class="row cl">
                     <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
                     <div class="formControls col-xs-8">
-                        <input id="" name="repassword" type="repassword" placeholder="请重新输入密码" class="input-text radius size-L">
+                        <input id="repwd" name="repassword" type="password" placeholder="请重新输入密码" class="input-text radius size-L">
                     </div>
                 </div>
                 <div class="row cl">
@@ -99,11 +99,51 @@
     <div class="footer">2017&nbsp;©格居装饰</div>
     <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="__STATIC__/h-ui/js/H-ui.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+	<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+	<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
     <script>
+        $().ready(function() {
+            $("#register").validate({
+                rules:{
+                    username:{required:true,isChinese:true},
+                    email:{required:true},
+                    department:{required:true},
+                    verifycode:{required:true},
+                    password:{required:true,rangelength:[8,25]},
+                    repassword:{required:true,equalTo:"password"},
+                
+                       },
+                messages:{
+                    username:{
+                        required:'请输入姓名',
+                        isChinese:'请使用中文姓名'},
+                    email:'邮箱格式不正确',
+                    department:'请选择部门',
+                    verifycode:'请输入验证码',
+                    password:{
+                        required:'请输入密码',
+                        rangelength:"不能小于8个字符",
+                        },
+                    repassword:{
+                        required:"请输入确认密码",
+                        rangelength:"不能小于8个字符",
+                        equalTo:"两次密码不一致"
+                    }
+                }
+        })
+        });
+
+
+        //验证码自动刷新
+        $('#verify_img').click();
+        //验证码点击刷新
         function refreshVerify() {
             var ts = Date.parse(new Date()) / 1000;
             $('#verify_img').attr("src", "/captcha?id=" + ts);
         }
+
+
     </script>
 </body>
 

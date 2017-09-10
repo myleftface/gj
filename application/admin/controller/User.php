@@ -47,6 +47,7 @@ class User extends Base
             if(!$validate->scene('register')->check($data)) {
                 $this->error($validate->getError());
             }
+
             if($data['password'] != $data['repassword']) {
                 $this->error('两次输入的密码不一样');
             }
