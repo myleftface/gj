@@ -53,13 +53,16 @@
                     <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe62b;</i></label>
                     <div class="formControls col-xs-8">
                         <span class="select-box size-L">
+                           
                             <select class="select" name="department">
-                              <option value="" selected>--请选择部门--</option>
-                              <option value="1">菜单一</option>
-                              <option value="2">菜单二</option>
-                              <option value="3">菜单三</option>
+                              <option value="0" selected>--请选择部门--</option>
+                              {volist name='department' id='vo'}
+                              <option value="{$vo.id}">{$vo.d_name}</option>
+                            
+                              {/volist}
                             </select>
                           </span>
+                          
                     </div>
                 </div>
                 <div class="row cl">

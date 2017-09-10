@@ -14,7 +14,7 @@ class Department extends BaseModel
         ];
 
         $order = [
-            'id' => 'desc',
+            'id' => 'asc',
         ];
 
         $res = $this->where($data)

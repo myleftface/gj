@@ -67,8 +67,11 @@ class User extends Base
             }
 
         }else {
+            $department = model('department')->getDepartment();
            
-            return $this->fetch();
+            return $this->fetch('',
+            ['department' => $department,
+            ]);
             
         }
        
