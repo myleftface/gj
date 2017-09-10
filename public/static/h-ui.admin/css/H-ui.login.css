@@ -28,7 +28,7 @@ body{font-size:14px}
 }
 .loginBox .row{margin-top:20px;}
 .loginBox .row .form-label .Hui-iconfont{ font-size:24px}
-.loginBox .input-text{ width:360px}
+.loginBox .input-text{ width:315px}
 @media (max-width:617px) {
 	.loginBox .input-text{ width:80%}
 }
