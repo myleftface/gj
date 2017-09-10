@@ -1,6 +1,7 @@
 {include file="pub/header" /}
 
 <body>
+        <nav class="breadcrumb"><i class="icon-home"></i> 客户列表 <a class="btn btn-success radius r mr-20 " id="btn-refresh" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="icon-refresh"></i>刷新</a></nav>
     <article class="page-container">
         <form class="form form-horizontal" id="form-article-add">
             <div class="row cl">
@@ -43,13 +44,6 @@
                     <input type="text" class="input-text" value="{$cusData.floor_space}" disabled="disabled" name="floor_space">
                 </div>
             </div>
-
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">提交人：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" value="{$cusData.submitter}"  disabled="disabled" name="submitter">
-                </div>
-            </div>>
             <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2">客户级别：</label>
                     <div class="formControls col-xs-8 col-sm-9">
@@ -64,11 +58,19 @@
                 </div>
             </div>
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">设计师：</label>
+                <label class="form-label col-xs-4 col-sm-2">提交人：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" value="{$cusData.designer}" disabled="disabled" name="designer">
+                    <input type="text" class="input-text" value="{$cusData.submitter}"  disabled="disabled" name="submitter">
                 </div>
-            </div>
+            </div>>
+            <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">设计师：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="{$cusData.designer}" disabled="disabled" name="designer">
+                    </div>
+                </div>
+          
+           
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">渠道来源：</label>
                 <div class="formControls col-xs-8 col-sm-9">
@@ -118,7 +120,7 @@
 
             <!-- <div class="row cl">
 				<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-					<button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
+                        <button onclick="removeIframe()" class="btn btn-primary radius">关闭选项卡</button>
 				</div>
 			</div> -->
         </form>

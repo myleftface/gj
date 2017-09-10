@@ -23,7 +23,8 @@ class Customer extends Validate {
     protected  $scene = [
         'add' => ['name', 'entry_date', 'cus_phone','designer', 'submitter'],
         'status' => ['id','status'],
-        'update' =>['contract_id','contract_date','handover_date','start_date','total_value','payment_status','design_fee','status']
+        'update' =>['contract_id','contract_date','handover_date','start_date','total_value','payment_status','design_fee','status'],
+        'check' =>['contract_id','total_value','payment_status','design_fee','status']
     ];
 }
 

@@ -34,7 +34,7 @@ class Cusuncheck extends  Base
         // dump($uid);
         $department = model('User')->getUserDepartmentById($uid);
         //dump($department->department);exit;
-        if($department->department != 1){
+        if($department->department != 6){
            // echo $department->department;exit;
             $sdata['submitter'] = $user->username;
             //dump($sdata);exit;
@@ -52,6 +52,6 @@ class Cusuncheck extends  Base
     }
 
    
-  
+   
 }
 	

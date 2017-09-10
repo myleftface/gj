@@ -62,7 +62,7 @@ class User extends BaseModel
         $data = [
           
             'status' => ['neq',-1],
-            'department'=>['gt',1],
+            'department'=>['neq',6],
         ];
 
         $order =[

@@ -1,6 +1,7 @@
 {include file="pub/header" /}
 
 <body>
+        <nav class="breadcrumb"><i class="icon-home"></i> 客户列表 <a class="btn btn-success radius r mr-20 " id="btn-refresh" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="icon-refresh"></i>刷新</a></nav>
     <article class="page-container">
         <form class="form form-horizontal" id="form-article-add" method="POST" action="{:url('admin/cusfeedback/fbsave')}">
             <div class="row cl">
@@ -36,6 +37,7 @@
             <div class="row cl">
                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
                     <button class="btn btn-primary radius " id="closeIframe" type="submit"><i class="Hui-iconfont">&#xe632;</i> 提交回访</button>
+                  
                 </div>
             </div>
         </form>

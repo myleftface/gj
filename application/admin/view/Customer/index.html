@@ -1,6 +1,9 @@
 {include file="pub/header" /}
 
 <body>
+	<nav class="breadcrumb"><i class="icon-home"></i> 新客户提交 <a class="btn btn-success radius r mr-20 " id="closetab" style="line-height:1.6em;margin-top:3px"
+		    onclick="removeIframe()" title="关闭选项卡"><i class="Hui-iconfont">&#xe706;</i></a><a class="btn btn-success radius r mr-20 "
+		    id="btn-refresh" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<article class="page-container">
 		<form class="form form-horizontal" id="form-article-add" method="POST" action="{:url('admin/customer/add')}">
 			<div class="row cl">
@@ -88,6 +91,8 @@
 			<div class="row cl">
 				<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
 					<button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交</button>
+					<a class="btn btn-primary radius  " id="closetab" onclick="removeIframe()" title="关闭选项卡"><i class="Hui-iconfont">&#xe706;</i>关闭选项卡</a>
+					
 				</div>
 			</div>
 		</form>
@@ -151,8 +156,8 @@
 				focusCleanup: true,
 				success: "valid",
 				submitHandler: function (form) {
-				form.Submit();
-				
+					form.Submit();
+
 				}
 			});
 		});
