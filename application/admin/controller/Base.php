@@ -161,7 +161,7 @@ class Base extends Controller {
 
         $res = model('Customer')->save($data, ['id' => intval($data['id'])]);
         if($res) {
-            $this->success('业绩上报成功');
+            $this->success('业绩上报成功','cusuncheck/index');
         } else {
             $this->error('业绩上报失败');
         }

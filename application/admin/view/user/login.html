@@ -35,7 +35,7 @@
         <div id="loginform" class="loginBox">
             <div class="logo"></div>
 
-            <form class="form form-horizontal" action="{:url('user/logincheck')}" method="post">
+            <form id="login" class="form form-horizontal" action="{:url('user/logincheck')}" method="post">
 
                 <div class="row cl">
                     <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
@@ -73,7 +73,21 @@
     <div class="footer">2017&nbsp;©格居装饰</div>
     <script type="text/javascript" src="__STATIC__/lib/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="__STATIC__/h-ui/js/H-ui.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+	<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+	<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
     <script>
+          $().ready(function() {
+            $("#login").validate({
+                rules:{
+                    username:{required:true},
+                    verifycode:{required:true},
+                    password:{required:true},
+                    }
+        })
+        });
+         //验证码自动刷新
+         $('#verify_img').click();
         function refreshVerify() {
             var ts = Date.parse(new Date()) / 1000;
             $('#verify_img').attr("src", "/captcha?id=" + ts);
